@@ -87,8 +87,24 @@ clipboard.addEventListener('click', () => {
     removeMessage();
 })
 
+// Clipboard Message
 function removeMessage() {
     setTimeout(() => {
         clipboardMessage.textContent = '';
+        setTimeout(() => {
+            clipboardMessage.textContent = 'Background will reset after 3 seconds.';
+            setTimeout(() => {
+                clipboardMessage.textContent = 'Background will reset after 2 seconds.';
+                setTimeout(() => {
+                    clipboardMessage.textContent = 'Background will reset after 1 second.';
+                    setTimeout(() => {
+                        clipboardMessage.textContent = '';
+                        document.body.style.background = '#f8f9fa';
+                        document.body.style.transition = '0.5s';
+                        color.textContent = '#f8f9fa';
+                    }, 1000);
+                }, 1000)
+            }, 1000);
+        }, 3000)
     }, 1000)
 }
